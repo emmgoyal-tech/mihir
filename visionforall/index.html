@@ -1438,6 +1438,137 @@
                 height: 200px;
             }
         }
+
+        /* Initiatives Intro */
+        .initiatives-intro {
+            background: var(--cream-dark);
+            padding: 3.5rem 0;
+            border-top: 1px solid rgba(30, 42, 74, 0.06);
+            border-bottom: 1px solid rgba(30, 42, 74, 0.06);
+        }
+
+        .initiatives-intro-text {
+            max-width: 840px;
+            margin: 0 auto;
+            text-align: center;
+            font-family: var(--font-display);
+            font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+            font-weight: 500;
+            line-height: 1.6;
+            color: var(--navy);
+        }
+
+        .initiatives-intro-text strong {
+            color: var(--amber-deep);
+            font-weight: 600;
+        }
+
+        .initiatives-intro-text a {
+            color: var(--indigo);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s;
+        }
+
+        .initiatives-intro-text a:hover {
+            color: var(--indigo-deep);
+        }
+
+        /* Initiative Badge */
+        .initiative-badge {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: white;
+            background: var(--gradient-accent);
+            padding: 0.4rem 0.95rem;
+            border-radius: 999px;
+            margin-bottom: 1.1rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* ReSpectacle Section */
+        .respectacle {
+            padding: var(--section-padding) 0;
+            background: var(--gradient-warm);
+        }
+
+        .respectacle-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .respectacle-block {
+            margin-top: 3.5rem;
+        }
+
+        .respectacle-block-title {
+            font-family: var(--font-display);
+            font-size: 1.85rem;
+            font-weight: 600;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .respectacle-columns {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3rem;
+            align-items: center;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .respectacle-lead p {
+            color: var(--warm-gray);
+            font-size: 1.05rem;
+            line-height: 1.85;
+        }
+
+        .respectacle-stats {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.75rem;
+        }
+
+        .respectacle-future {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .respectacle-columns {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2.25rem;
+            }
+
+            .respectacle-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.25rem;
+            }
+
+            .respectacle-future {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .respectacle-stats {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1458,6 +1589,7 @@
                 <li><a href="#journey">Journey</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#respectacle">ReSpectacle</a></li>
                 <li><a href="#involve">Get Involved</a></li>
                 <li><a href="#contact" class="nav-cta">Contact</a></li>
             </ul>
@@ -1564,10 +1696,20 @@
         </div>
     </section>
 
+    <!-- Initiatives Intro -->
+    <section class="initiatives-intro">
+        <div class="container">
+            <p class="initiatives-intro-text reveal">
+                <strong>Two vision-focused initiatives.</strong> Vision for All brings learning tools to visually impaired students at Sharp Memorial School in India — and founder Mihir Goyal also leads the Garden City chapter of <a href="#respectacle">ReSpectacle.org</a>, redistributing prescription eyeglasses to families across the U.S.
+            </p>
+        </div>
+    </section>
+
     <!-- Journey Section -->
     <section class="journey" id="journey">
         <div class="container">
             <div class="journey-header reveal">
+                <span class="initiative-badge">Initiative 01 · Sharp Memorial School</span>
                 <span class="section-label">The Journey</span>
                 <h2 class="section-title">From Classroom to Community</h2>
                 <p class="section-subtitle">
@@ -1721,6 +1863,70 @@
                     <img src="images/gallery-5.jpg" alt="Distribution day">
                     <div class="gallery-item-overlay"></div>
                     <div class="gallery-item-caption">Distribution day celebration</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Initiative 02: ReSpectacle.org Garden City Chapter -->
+    <section class="respectacle" id="respectacle">
+        <div class="container">
+            <div class="respectacle-header reveal">
+                <span class="initiative-badge">Initiative 02 · ReSpectacle.org</span>
+                <span class="section-label">Garden City Chapter</span>
+                <h2 class="section-title">Clearer Vision, One Pair at a Time</h2>
+                <p class="section-subtitle">
+                    Alongside Vision for All, founder Mihir Goyal leads the Garden City chapter of ReSpectacle.org—a national nonprofit that collects and redistributes prescription eyeglasses to people who cannot afford them.
+                </p>
+            </div>
+
+            <div class="respectacle-block reveal">
+                <h3 class="respectacle-block-title">What We Do</h3>
+                <div class="respectacle-columns">
+                    <div class="respectacle-lead">
+                        <p>As chapter president since 9th grade, Mihir organizes volunteer sessions to clean, sort, and batch donated prescription eyeglasses—preparing them for distribution to low-income households across the United States. What many set aside as "old" or "spare" becomes a clear view of the world for someone who needs it.</p>
+                    </div>
+                    <div class="respectacle-stats">
+                        <div class="stat">
+                            <div class="stat-value">1,000+</div>
+                            <div class="stat-label">Eyeglasses Cleaned &amp; Batched</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">Nationwide</div>
+                            <div class="stat-label">U.S. Distribution</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">President</div>
+                            <div class="stat-label">Garden City Chapter, since 9th grade</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="respectacle-block reveal">
+                <h3 class="respectacle-block-title">Looking Ahead</h3>
+                <div class="respectacle-future">
+                    <div class="future-card reveal">
+                        <div class="future-card-number">01</div>
+                        <div class="future-card-content">
+                            <h3>Grow the Chapter</h3>
+                            <p>Involve more Garden City students as volunteers, widening the chapter's reach and building a lasting team.</p>
+                        </div>
+                    </div>
+                    <div class="future-card reveal">
+                        <div class="future-card-number">02</div>
+                        <div class="future-card-content">
+                            <h3>Target: 500 Eyeglasses</h3>
+                            <p>Clean, batch, and prepare 500 pairs of prescription eyeglasses for families who need them most.</p>
+                        </div>
+                    </div>
+                    <div class="future-card reveal">
+                        <div class="future-card-number">03</div>
+                        <div class="future-card-content">
+                            <h3>New Drives — September 2026</h3>
+                            <p>Launch new community eyeglass-collection drives beginning in September 2026.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
