@@ -1160,6 +1160,110 @@
             overflow: hidden;
         }
 
+        /* Leadership Section */
+        .leadership {
+            background: var(--cream);
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .leadership-item {
+            padding: 2rem;
+            background: white;
+            border-left: 3px solid var(--navy-mid);
+            transition: all 0.3s ease;
+        }
+
+        .leadership-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 40px rgba(10, 22, 40, 0.08);
+            border-left-color: var(--cyan-accent);
+        }
+
+        .leadership-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 1rem;
+            color: var(--cyan-accent);
+        }
+
+        .leadership-club {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy-deep);
+        }
+
+        .leadership-role {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--cyan-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.35rem;
+        }
+
+        .leadership-tenure {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .leadership-details {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-top: 0.75rem;
+            line-height: 1.65;
+            list-style: none;
+        }
+
+        .leadership-details li {
+            position: relative;
+            padding-left: 1.1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .leadership-details li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 6px;
+            height: 6px;
+            background: var(--cyan-accent);
+            border-radius: 50%;
+        }
+
+        .leadership-growth {
+            display: inline-block;
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy-mid);
+            background: var(--cyan-glow);
+            padding: 0.3rem 0.75rem;
+            border-radius: 100px;
+        }
+
+        .leadership-more {
+            margin-top: 2.5rem;
+            text-align: center;
+        }
+
+        .leadership-more-label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+        }
+
         .interests-wrapper {
             display: flex;
             gap: 1rem;
@@ -1734,6 +1838,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#vision">VisionForAll</a></li>
+            <li><a href="#leadership">Leadership</a></li>
             <li><a href="#awards">Awards</a></li>
             <li><a href="#publications">Publications</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -1749,6 +1854,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#vision">VisionForAll</a></li>
+            <li><a href="#leadership">Leadership</a></li>
             <li><a href="#awards">Awards</a></li>
             <li><a href="#publications">Publications</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -2002,9 +2108,130 @@
         </div>
     </section>
 
-    <section class="awards" id="awards">
+    <section class="leadership" id="leadership">
         <div class="section-header">
             <span class="section-number">03</span>
+            <h2 class="section-title">Leadership & Activities</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="leadership-grid">
+            <div class="leadership-item">
+                <svg class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                <h3 class="leadership-club">Debate Team</h3>
+                <div class="leadership-role">President</div>
+                <div class="leadership-tenure">Garden City High School · Grade 9 — Present</div>
+                <ul class="leadership-details">
+                    <li>Compete monthly at public forum debate tournaments across New York State</li>
+                    <li>Develop training presentations and mentor new members at semiweekly practice sessions</li>
+                </ul>
+                <span class="leadership-growth">Grew club from 6 to 20 members</span>
+            </div>
+            <div class="leadership-item">
+                <svg class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h3 class="leadership-club">Model United Nations</h3>
+                <div class="leadership-role">Vice President</div>
+                <div class="leadership-tenure">Garden City High School · Grade 9 — Present</div>
+                <ul class="leadership-details">
+                    <li>Facilitate weekly meetings; design training materials, simulations, mock debates, and icebreakers</li>
+                    <li>Represent the school at monthly MUN conferences across New York</li>
+                </ul>
+                <span class="leadership-growth">Grew club from 8 to 40 active members</span>
+            </div>
+            <div class="leadership-item">
+                <svg class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                </svg>
+                <h3 class="leadership-club">Geography Club</h3>
+                <div class="leadership-role">President (Grades 11–12) · Member (Grades 9–10)</div>
+                <div class="leadership-tenure">Garden City High School · Grade 9 — Present</div>
+                <ul class="leadership-details">
+                    <li>Lead biweekly meetings focused on geography education and National Geography Bee preparation</li>
+                    <li>Cover physical & cultural geography, vexillology, linguistics, geopolitics, cartography, demographics, and numismatics</li>
+                    <li>Organize mock competitions and written exams</li>
+                </ul>
+            </div>
+            <div class="leadership-item">
+                <svg class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+                <h3 class="leadership-club">Envirothon Team</h3>
+                <div class="leadership-role">President</div>
+                <div class="leadership-tenure">Garden City High School · Grade 10 — Present</div>
+                <ul class="leadership-details">
+                    <li>Organize weekly sessions and teach forestry, wildlife, soils, and aquatics to prepare teams for the Long Island Envirothon</li>
+                    <li>Create study materials and mock exams</li>
+                </ul>
+            </div>
+            <div class="leadership-item">
+                <svg class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                </svg>
+                <h3 class="leadership-club">Marching Band</h3>
+                <div class="leadership-role">Woodwind Section Leader</div>
+                <div class="leadership-tenure">Garden City High School · Grade 7 — Present</div>
+                <ul class="leadership-details">
+                    <li>Lead and mentor the woodwind section during rehearsals and performances, improving musical accuracy, technique, and marching fundamentals</li>
+                    <li>Organize sectionals with individualized instruction on music, drill, and performance skills</li>
+                    <li>Serve as liaison between band leadership and section members</li>
+                </ul>
+            </div>
+            <div class="leadership-item">
+                <svg class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                <h3 class="leadership-club">ReSpectacle.org — Garden City Chapter</h3>
+                <div class="leadership-role">President</div>
+                <div class="leadership-tenure">Grade 9 — Present</div>
+                <ul class="leadership-details">
+                    <li>Organize volunteer sessions to clean and batch over 1,000 prescription eyeglasses for distribution to low-income households across the United States</li>
+                </ul>
+                <a href="visionforall/#respectacle" target="_blank" class="award-link">Learn More</a>
+            </div>
+            <div class="leadership-item">
+                <svg class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+                <h3 class="leadership-club">Stock Market Club</h3>
+                <div class="leadership-role">Secretary</div>
+                <div class="leadership-tenure">Garden City High School · Grade 9 — Present</div>
+                <ul class="leadership-details">
+                    <li>Maintain meeting minutes, attendance records, and club communications</li>
+                    <li>Help organize stock market simulations, investment competitions, and events promoting financial literacy</li>
+                </ul>
+            </div>
+            <div class="leadership-item">
+                <svg class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                </svg>
+                <h3 class="leadership-club">Chemistry Club</h3>
+                <div class="leadership-role">Secretary</div>
+                <div class="leadership-tenure">Garden City High School · Grade 11 — Present</div>
+                <ul class="leadership-details">
+                    <li>Coordinate club events, guest speaker sessions, and laboratory demonstrations</li>
+                    <li>Maintain attendance records, meeting minutes, and event materials promoting interest in chemistry and STEM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="leadership-more">
+            <span class="leadership-more-label">Also Active In</span>
+            <div class="interests-wrapper">
+                <span class="interest-tag">Jazz Band</span>
+                <span class="interest-tag">Chess Club</span>
+                <span class="interest-tag">Fed Challenge</span>
+                <span class="interest-tag">Tri-M Music Honor Society</span>
+                <span class="interest-tag">National Honor Society</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="awards" id="awards">
+        <div class="section-header">
+            <span class="section-number">04</span>
             <h2 class="section-title">Awards & Honors</h2>
             <div class="section-line"></div>
         </div>
@@ -2119,7 +2346,7 @@
 
     <section class="scores" id="scores">
         <div class="section-header">
-            <span class="section-number">04</span>
+            <span class="section-number">05</span>
             <h2 class="section-title">Test Scores</h2>
             <div class="section-line"></div>
         </div>
@@ -2183,7 +2410,7 @@
 
     <section class="publications" id="publications">
         <div class="section-header">
-            <span class="section-number">05</span>
+            <span class="section-number">06</span>
             <h2 class="section-title">Publications</h2>
             <div class="section-line"></div>
         </div>
@@ -2235,7 +2462,7 @@
 
     <section class="interests" id="interests">
         <div class="section-header">
-            <span class="section-number">06</span>
+            <span class="section-number">07</span>
             <h2 class="section-title">Interests & Passions</h2>
             <div class="section-line"></div>
         </div>
@@ -2343,7 +2570,7 @@
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.timeline-item, .award-item, .stat-item').forEach(el => {
+            document.querySelectorAll('.timeline-item, .award-item, .stat-item, .leadership-item').forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(30px)';
                 el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
