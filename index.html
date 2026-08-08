@@ -13,20 +13,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mihir Goyal | Aspiring Legal Professional & Advocate</title>
-    <meta name="description" content="High school junior passionate about law, advocacy, and community service. Legal intern, criminal law researcher, and founder of VisionForAll.">
+    <meta name="description" content="High school senior passionate about law, advocacy, and community service. Legal intern, criminal law researcher, and founder of VisionForAll.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mihir-goyal.com/">
     <meta property="og:title" content="Mihir Goyal | Aspiring Legal Professional & Advocate">
-    <meta property="og:description" content="High school junior passionate about law, advocacy, and community service. Legal intern, criminal law researcher, and founder of VisionForAll.">
+    <meta property="og:description" content="High school senior passionate about law, advocacy, and community service. Legal intern, criminal law researcher, and founder of VisionForAll.">
     <meta property="og:image" content="https://mihir-goyal.com/MihirG.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://mihir-goyal.com/">
     <meta name="twitter:title" content="Mihir Goyal | Aspiring Legal Professional & Advocate">
-    <meta name="twitter:description" content="High school junior passionate about law, advocacy, and community service. Legal intern, criminal law researcher, and founder of VisionForAll.">
+    <meta name="twitter:description" content="High school senior passionate about law, advocacy, and community service. Legal intern, criminal law researcher, and founder of VisionForAll.">
     <meta name="twitter:image" content="https://mihir-goyal.com/MihirG.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1697,6 +1697,34 @@
                 background: var(--cyan-accent);
             }
         }
+        /* Accessibility: visible keyboard focus */
+        a:focus-visible,
+        button:focus-visible,
+        .interest-tag:focus-visible,
+        .debate-image-item img:focus-visible,
+        .book-cover:focus-visible {
+            outline: 3px solid var(--cyan-accent);
+            outline-offset: 3px;
+            border-radius: 2px;
+        }
+
+        /* Accessibility: respect reduced-motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .animate-in {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1733,7 +1761,7 @@
             <h1 class="hero-name animate-in delay-1">Mihir<br>Goyal</h1>
             <p class="hero-tagline animate-in delay-2">Aspiring Legal Professional, Advocate & Changemaker</p>
             <p class="hero-description animate-in delay-3">
-                High school junior with a passion for law, advocacy, and creating meaningful change.
+                High school senior with a passion for law, advocacy, and creating meaningful change.
                 Building bridges through service and striving for justice in every endeavor.
             </p>
             <a href="#contact" class="hero-cta animate-in delay-4">
@@ -1762,7 +1790,7 @@
         <div class="about-grid">
             <div class="about-text">
                 <p>
-                    I'm a junior at Garden City High School, Class of 2027, driven by an unwavering
+                    I'm a senior at Garden City High School, Class of 2027, driven by an unwavering
                     commitment to law, advocacy, and community service. My journey has taken me from
                     the courtrooms of Long Island to the classrooms of India, each experience shaping
                     my understanding of justice and equity.
@@ -1809,7 +1837,36 @@
         </div>
         <div class="timeline">
             <div class="timeline-item">
-                <span class="timeline-date">Jul 2025 — Present</span>
+                <span class="timeline-date">Jun 2026 — Present</span>
+                <div class="timeline-dot"></div>
+                <h3 class="timeline-role">Prep Cook / Dishwasher</h3>
+                <p class="timeline-company">
+                    Morton's The Steakhouse
+                    <span class="timeline-location">• Great Neck, NY</span>
+                </p>
+                <ul class="timeline-description">
+                    <li>Prepare ingredients and assist kitchen staff with food preparation in a fast-paced, high-volume restaurant</li>
+                    <li>Wash, sanitize, and organize cookware, dishes, and kitchen equipment in accordance with food safety standards</li>
+                    <li>Stock, portion, measure, and replenish kitchen supplies and ingredients</li>
+                    <li>Follow health, safety, and sanitation regulations while handling food and kitchen equipment</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">Jul 2026 — Aug 2026</span>
+                <div class="timeline-dot"></div>
+                <h3 class="timeline-role">Legal Intern</h3>
+                <p class="timeline-company">
+                    Rosenberg & Rodriguez, PLLC
+                    <span class="timeline-location">• Freeport, NY</span>
+                </p>
+                <ul class="timeline-description">
+                    <li>Digitized and indexed legal files — over 40,000 pages — by scanning and organizing documents into the firm's electronic records system, supporting efficient case management and document retrieval</li>
+                    <li>Visited over 10 accident and injury sites to capture photographic evidence, assisting attorneys with case documentation and investigation</li>
+                    <li>Conversed with clients in English, Spanish, and Hindi</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">Jul 2025 — Aug 2025</span>
                 <div class="timeline-dot"></div>
                 <h3 class="timeline-role">Legal Intern</h3>
                 <p class="timeline-company">
@@ -1888,16 +1945,18 @@
                 </ul>
             </div>
             <div class="timeline-item">
-                <span class="timeline-date">Ongoing</span>
+                <span class="timeline-date">Sep 2025 — Present</span>
                 <div class="timeline-dot"></div>
                 <h3 class="timeline-role">Student Ambassador</h3>
                 <p class="timeline-company">
-                    GC Estates POA
+                    Garden City Estates Property Owners' Association
                     <span class="timeline-location">• Garden City, NY</span>
                 </p>
-                <p class="timeline-description">
-                    Representing student interests and facilitating community engagement initiatives.
-                </p>
+                <ul class="timeline-description">
+                    <li>Attend monthly Estates POA, Board of Education, and Village Board of Trustees meetings</li>
+                    <li>Document resident concerns and develop policy recommendations for community improvements</li>
+                    <li>Authoring a policy report on issues relevant to high school students in Garden City</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -1954,10 +2013,10 @@
                 <svg class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
-                <h3 class="award-title">AP Scholar</h3>
+                <h3 class="award-title">AP Scholar with Distinction</h3>
                 <div class="award-issuer">Issued by College Board</div>
-                <div class="award-date">Jul 2025</div>
-                <p class="award-description">Granted to students who receive scores of 3 or higher on three or more AP Exams.</p>
+                <div class="award-date">Jul 2026</div>
+                <p class="award-description">Granted to students who receive an average score of at least 3.5 on all AP Exams taken, and scores of 3 or higher on five or more of those exams.</p>
                 <div class="award-association">
                     <img src="garden_city_high_school_35_logo.jpeg" alt="Garden City High School" class="award-association-logo">
                     <span class="award-association-text">Associated with Garden City High School</span>
@@ -1967,9 +2026,10 @@
                 <svg class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
-                <h3 class="award-title">Long Island Math Fair Bronze Medal</h3>
+                <h3 class="award-title">2× Long Island Math Fair Medalist</h3>
                 <div class="award-issuer">Issued by The Association of Math Supervisors of Long Island</div>
-                <div class="award-date">Mar 2025</div>
+                <div class="award-date">2025 · 2026</div>
+                <p class="award-description">Bronze Medal (2025) · Silver Medal (2026)</p>
                 <div class="award-association">
                     <img src="garden_city_high_school_35_logo.jpeg" alt="Garden City High School" class="award-association-logo">
                     <span class="award-association-text">Associated with Garden City High School</span>
@@ -1980,9 +2040,22 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                 </svg>
                 <h3 class="award-title">President's Volunteer Service Award — Gold Medal</h3>
-                <div class="award-date">Feb 2024</div>
+                <div class="award-date">Apr 2025</div>
                 <p class="award-description">Recognized for 100+ hours of volunteer work dedicated to community service initiatives.</p>
                 <a href="https://www.gcnews.com/articles/livc-hosts-presidents-volunteer-service-awards" target="_blank" class="award-link">Read News Article</a>
+                <div class="award-association">
+                    <img src="garden_city_high_school_35_logo.jpeg" alt="Garden City High School" class="award-association-logo">
+                    <span class="award-association-text">Associated with Garden City High School</span>
+                </div>
+            </div>
+            <div class="award-item">
+                <svg class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2z" />
+                </svg>
+                <h3 class="award-title">American Legion Boys State Award</h3>
+                <div class="award-issuer">Issued by The American Legion</div>
+                <div class="award-date">May 2026</div>
+                <p class="award-description">Selected for the American Legion's premier leadership and civic education program in government and citizenship.</p>
                 <div class="award-association">
                     <img src="garden_city_high_school_35_logo.jpeg" alt="Garden City High School" class="award-association-logo">
                     <span class="award-association-text">Associated with Garden City High School</span>
@@ -1997,6 +2070,8 @@
                 <ul class="award-details">
                     <li><strong>Feb 2025:</strong> 2nd place out of 16 teams — Full qualification for NY State debate tournament</li>
                     <li><strong>Sep 2025:</strong> 8th place out of 42 teams — Half qualification for NY State debate tournament</li>
+                    <li><strong>Feb 2026:</strong> 1st place out of 10 teams, Citron February Debate (Public Forum) — Half qualification for NY State debate tournament</li>
+                    <li><strong>May 2026:</strong> 4th place — Tri-State Debate League Championship</li>
                 </ul>
                 <div class="debate-images">
                     <div class="debate-image-item">
@@ -2017,9 +2092,9 @@
                 <svg class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
                 </svg>
-                <h3 class="award-title">National Spanish Exam Medalist</h3>
+                <h3 class="award-title">4× National Spanish Exam Medalist</h3>
                 <div class="award-issuer">Issued by American Association of Teachers of Spanish and Portuguese (AATSP)</div>
-                <p class="award-description">2× Silver Medal (2023, 2024) · 1× Bronze Medal (2025)</p>
+                <p class="award-description">2× Silver Medal · 2× Bronze Medal (2023, 2024, 2025, 2026)</p>
                 <div class="award-association">
                     <img src="garden_city_high_school_35_logo.jpeg" alt="Garden City High School" class="award-association-logo">
                     <span class="award-association-text">Associated with Garden City High School</span>
@@ -2205,11 +2280,11 @@
     </section>
 
     <footer>
-        <p>© 2025 Mihir Goyal. Crafted with purpose.</p>
+        <p>© 2026 Mihir Goyal. Crafted with purpose.</p>
     </footer>
 
     <!-- Image Modal -->
-    <div class="image-modal" id="imageModal">
+    <div class="image-modal" id="imageModal" role="dialog" aria-modal="true" aria-label="Image viewer">
         <div class="modal-content">
             <button class="modal-close" aria-label="Close modal">&times;</button>
             <img id="modalImage" src="" alt="">
@@ -2226,8 +2301,11 @@
         function toggleMenu() {
             navToggle.classList.toggle('active');
             navOverlay.classList.toggle('active');
-            document.body.style.overflow = navOverlay.classList.contains('active') ? 'hidden' : '';
+            const open = navOverlay.classList.contains('active');
+            navToggle.setAttribute('aria-expanded', open);
+            document.body.style.overflow = open ? 'hidden' : '';
         }
+        navToggle.setAttribute('aria-expanded', 'false');
 
         navToggle.addEventListener('click', toggleMenu);
 
@@ -2235,6 +2313,7 @@
             link.addEventListener('click', () => {
                 navToggle.classList.remove('active');
                 navOverlay.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
             });
         });
@@ -2246,27 +2325,31 @@
             }
         });
 
-        // Smooth reveal animations on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // Smooth reveal animations on scroll (skipped for reduced-motion users)
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
+        if (!prefersReducedMotion) {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.timeline-item, .award-item, .stat-item').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.timeline-item, .award-item, .stat-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
+        }
 
         // Nav background on scroll
         const nav = document.querySelector('nav');
@@ -2284,18 +2367,37 @@
         const modalCaption = document.getElementById('modalCaption');
         const modalClose = document.querySelector('.modal-close');
 
+        let modalTrigger = null;
+
+        function openModal(img) {
+            modalTrigger = img;
+            modal.classList.add('active');
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+            modalCaption.textContent = img.alt;
+            document.body.style.overflow = 'hidden';
+            modalClose.focus();
+        }
+
         document.querySelectorAll('.debate-image-item img, .book-cover').forEach(img => {
-            img.addEventListener('click', function() {
-                modal.classList.add('active');
-                modalImg.src = this.src;
-                modalCaption.textContent = this.alt;
-                document.body.style.overflow = 'hidden';
+            img.setAttribute('tabindex', '0');
+            img.setAttribute('role', 'button');
+            img.addEventListener('click', function() { openModal(this); });
+            img.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openModal(this);
+                }
             });
         });
 
         function closeModal() {
             modal.classList.remove('active');
             document.body.style.overflow = '';
+            if (modalTrigger) {
+                modalTrigger.focus();
+                modalTrigger = null;
+            }
         }
 
         modalClose.addEventListener('click', closeModal);
