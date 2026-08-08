@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FFFBF5">
     <title>Vision for All | Mihir Goyal</title>
     <meta name="description" content="Vision for All - A youth-led initiative bringing educational resources and hope to visually impaired students at Sharp Memorial School in India.">
 
@@ -108,7 +109,7 @@
             right: 0;
             z-index: 1000;
             padding: 1.25rem 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .nav.scrolled {
@@ -175,10 +176,12 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 0;
+            width: 100%;
             height: 2px;
             background: var(--amber);
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .nav-links a:hover {
@@ -186,7 +189,7 @@
         }
 
         .nav-links a:hover::after {
-            width: 100%;
+            transform: scaleX(1);
         }
 
         .nav-cta {
@@ -221,7 +224,7 @@
             height: 2px;
             background: var(--navy);
             border-radius: 2px;
-            transition: all 0.3s;
+            transition: transform 0.3s, opacity 0.3s, background 0.3s;
         }
 
         /* Hero Section */
@@ -347,7 +350,7 @@
             font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             border: none;
         }
@@ -764,16 +767,16 @@
             color: var(--amber-deep);
             font-weight: 600;
             text-decoration: none;
-            transition: gap 0.3s;
         }
 
-        .about-card-link:hover {
-            gap: 0.75rem;
+        .about-card-link:hover svg {
+            transform: translateX(4px);
         }
 
         .about-card-link svg {
             width: 18px;
             height: 18px;
+            transition: transform 0.3s;
         }
 
         /* Gallery Section */
@@ -825,7 +828,6 @@
             position: relative;
             border-radius: 16px;
             overflow: hidden;
-            cursor: pointer;
         }
 
         .gallery-item:nth-child(1) {
@@ -867,7 +869,7 @@
             font-weight: 500;
             transform: translateY(20px);
             opacity: 0;
-            transition: all 0.3s;
+            transition: transform 0.3s, opacity 0.3s;
         }
 
         .gallery-item:hover .gallery-item-caption {
@@ -901,7 +903,7 @@
             padding: 2.5rem;
             text-align: center;
             box-shadow: var(--shadow-soft);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
@@ -915,6 +917,7 @@
             height: 4px;
             background: var(--gradient-accent);
             transform: scaleX(0);
+            transform-origin: left;
             transition: transform 0.3s;
         }
 
@@ -1044,7 +1047,7 @@
             padding: 2rem;
             border-radius: 20px;
             box-shadow: var(--shadow-soft);
-            transition: all 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
         }
 
         .future-card:hover {
@@ -1309,12 +1312,56 @@
         .reveal {
             opacity: 0;
             transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Guideline pass: interaction, layout & typography polish */
+        html {
+            color-scheme: light;
+        }
+
+        a, button, input, select, textarea {
+            touch-action: manipulation;
+        }
+
+        a, button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        section[id] {
+            scroll-margin-top: 5.5rem;
+        }
+
+        .section-title,
+        .hero-title,
+        .timeline-title {
+            text-wrap: balance;
+        }
+
+        .stat-value {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            z-index: 2000;
+            background: var(--navy);
+            color: #fff;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0 0 12px 0;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .skip-link:focus {
+            left: 0;
         }
 
         /* Accessibility: visible keyboard focus */
@@ -1623,12 +1670,13 @@
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to content</a>
     <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="container nav-inner">
-            <a href="#" class="nav-logo">
+            <a href="#home" class="nav-logo">
                 <div class="nav-logo-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg>
@@ -1653,12 +1701,13 @@
     </nav>
 
     <!-- Hero Section -->
+    <main id="main">
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
                     <div class="hero-badge">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
                         </svg>
                         Two Youth-Led Initiatives
@@ -1672,7 +1721,7 @@
                     <div class="hero-actions">
                         <a href="#involve" class="btn btn-primary">
                             Join the Mission
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
                         </a>
@@ -1699,7 +1748,7 @@
                     <div class="hero-decoration"></div>
                     <div class="hero-image-wrapper">
                         <!-- Replace src with your actual image -->
-                        <img src="images/hero-teaching.jpg" alt="Mihir teaching students at Sharp Memorial School" class="hero-image">
+                        <img src="images/hero-teaching.jpg" alt="Mihir teaching students at Sharp Memorial School" width="1156" height="534" fetchpriority="high" class="hero-image">
                         <div class="hero-image-caption">
                             <strong>Sharp Memorial School</strong> — Teaching mathematics to students in Rajpur, India
                         </div>
@@ -1717,18 +1766,18 @@
                     <div class="mission-accent"></div>
                     <div class="mission-image">
                         <!-- Replace with actual image -->
-                        <img src="images/mission-1.jpg" alt="Students with new backpacks">
+                        <img src="images/mission-1.jpg" alt="Students with new backpacks" width="1600" height="739" loading="lazy">
                     </div>
                     <div class="mission-image">
                         <!-- Replace with actual image -->
-                        <img src="images/mission-2.jpg" alt="Classroom at Sharp Memorial">
+                        <img src="images/mission-2.jpg" alt="Classroom at Sharp Memorial" width="1125" height="845" loading="lazy">
                     </div>
                 </div>
                 <div class="mission-content reveal">
                     <span class="section-label">Our Mission</span>
                     <h2 class="section-title">Everyone Deserves the Tools to See and Learn</h2>
                     <blockquote class="mission-quote">
-                        "Things laying around as 'spare' or 'old' can make a world of difference in someone else's life."
+                        “Things laying around as ‘spare’ or ‘old’ can make a world of difference in someone else’s life.”
                     </blockquote>
                     <p class="mission-text">
                         Vision for All began with a simple observation during a 2024 teaching visit to Sharp Memorial School for the Blind in Rajpur, India: students lacked basic school supplies that most of us take for granted.
@@ -1738,7 +1787,7 @@
                     </p>
                     <a href="#involve" class="btn btn-primary">
                         Help Us Grow
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                     </a>
@@ -1777,7 +1826,7 @@
                             Volunteered at Sharp Memorial School for the Blind, teaching mathematics, English, geography, and environmental studies across multiple grades. Witnessed firsthand the challenges students face with limited resources.
                         </p>
                         <!-- Replace with actual image -->
-                        <img src="images/timeline-teaching.jpg" alt="Teaching session" class="timeline-image">
+                        <img src="images/timeline-teaching.jpg" alt="Teaching session" width="1127" height="845" loading="lazy" class="timeline-image">
                     </div>
                     <div class="timeline-marker"></div>
                 </div>
@@ -1787,10 +1836,10 @@
                         <div class="timeline-date">July 2025</div>
                         <h3 class="timeline-title">First Backpack Drive</h3>
                         <p class="timeline-description">
-                            Launched the inaugural backpack collection campaign across Long Island. Collected approximately 100 used and new backpacks from generous community members who understood that their "extras" could transform a student's education.
+                            Launched the inaugural backpack collection campaign across Long Island. Collected approximately 100 used and new backpacks from generous community members who understood that their “extras” could transform a student's education.
                         </p>
                         <!-- Replace with actual image -->
-                        <img src="images/timeline-drive.jpg" alt="Backpack collection" class="timeline-image">
+                        <img src="images/timeline-drive.jpg" alt="Backpack collection" width="1127" height="845" loading="lazy" class="timeline-image">
                     </div>
                     <div class="timeline-marker"></div>
                 </div>
@@ -1803,7 +1852,7 @@
                             Traveled to Sharp Memorial School to personally deliver the collected backpacks. Met with school staff and distributed supplies to students on campus during the holiday season.
                         </p>
                         <!-- Replace with actual image -->
-                        <img src="images/timeline-delivery.jpg" alt="Delivering backpacks" class="timeline-image">
+                        <img src="images/timeline-delivery.jpg" alt="Delivering backpacks" width="2048" height="1536" loading="lazy" class="timeline-image">
                     </div>
                     <div class="timeline-marker"></div>
                 </div>
@@ -1816,7 +1865,7 @@
                             Expanding beyond one person. Building a network of youth volunteers, launching new initiatives including braille book drives and remote tutoring programs, and creating replicable "chapter" models for other schools.
                         </p>
                         <!-- Replace with actual image -->
-                        <img src="images/timeline-future.jpg" alt="Future vision" class="timeline-image">
+                        <img src="images/timeline-future.jpg" alt="Future vision" width="5800" height="3867" loading="lazy" class="timeline-image">
                     </div>
                     <div class="timeline-marker"></div>
                 </div>
@@ -1830,7 +1879,7 @@
             <div class="about-grid">
                 <div class="about-card reveal">
                     <div class="about-card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
                     </div>
@@ -1843,7 +1892,7 @@
                     </p>
                     <a href="https://goyalmihir.blogspot.com" target="_blank" class="about-card-link">
                         Read Mihir's Blog
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                     </a>
@@ -1851,7 +1900,7 @@
 
                 <div class="about-card reveal">
                     <div class="about-card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                         </svg>
                     </div>
@@ -1864,7 +1913,7 @@
                     </p>
                     <a href="#contact" class="about-card-link">
                         Learn More
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                     </a>
@@ -1887,31 +1936,31 @@
             <div class="gallery-grid reveal">
                 <div class="gallery-item">
                     <!-- Replace with actual image -->
-                    <img src="images/gallery-1.jpg" alt="Group photo with students">
+                    <img src="images/gallery-1.jpg" alt="Group photo with students" width="1809" height="845" loading="lazy">
                     <div class="gallery-item-overlay"></div>
                     <div class="gallery-item-caption">Students receiving new backpacks</div>
                 </div>
                 <div class="gallery-item">
                     <!-- Replace with actual image -->
-                    <img src="images/gallery-2.jpg" alt="Teaching moment">
+                    <img src="images/gallery-2.jpg" alt="Teaching moment" width="390" height="845" loading="lazy">
                     <div class="gallery-item-overlay"></div>
                     <div class="gallery-item-caption">Mathematics lesson</div>
                 </div>
                 <div class="gallery-item">
                     <!-- Replace with actual image -->
-                    <img src="images/gallery-3.jpg" alt="Backpack collection">
+                    <img src="images/gallery-3.jpg" alt="Backpack collection" width="1127" height="845" loading="lazy">
                     <div class="gallery-item-overlay"></div>
                     <div class="gallery-item-caption">Community donations</div>
                 </div>
                 <div class="gallery-item">
                     <!-- Replace with actual image -->
-                    <img src="images/gallery-4.jpg" alt="School building">
+                    <img src="images/gallery-4.jpg" alt="School building" width="1809" height="845" loading="lazy">
                     <div class="gallery-item-overlay"></div>
                     <div class="gallery-item-caption">Sharp Memorial campus</div>
                 </div>
                 <div class="gallery-item">
                     <!-- Replace with actual image -->
-                    <img src="images/gallery-5.jpg" alt="Distribution day">
+                    <img src="images/gallery-5.jpg" alt="Distribution day" width="1600" height="739" loading="lazy">
                     <div class="gallery-item-overlay"></div>
                     <div class="gallery-item-caption">Distribution day celebration</div>
                 </div>
@@ -1935,7 +1984,7 @@
                 <h3 class="respectacle-block-title">What We Do</h3>
                 <div class="respectacle-columns">
                     <div class="respectacle-lead">
-                        <p>As chapter president since 9th grade, Mihir organizes volunteer sessions to clean, sort, and batch donated prescription eyeglasses—preparing them for distribution to low-income households across the United States. What many set aside as "old" or "spare" becomes a clear view of the world for someone who needs it.</p>
+                        <p>As chapter president since 9th grade, Mihir organizes volunteer sessions to clean, sort, and batch donated prescription eyeglasses—preparing them for distribution to low-income households across the United States. What many set aside as “old” or “spare” becomes a clear view of the world for someone who needs it.</p>
                     </div>
                     <div class="respectacle-stats">
                         <div class="stat">
@@ -1966,7 +2015,7 @@
                                 Launched the Garden City chapter of ReSpectacle.org, bringing the national eyeglass-redistribution mission to Long Island.
                             </p>
                             <div class="timeline-photo-placeholder">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
@@ -1983,7 +2032,7 @@
                                 Organized volunteer sessions that cleaned, sorted, and batched more than 1,000 donated prescription eyeglasses for distribution to low-income households nationwide.
                             </p>
                             <div class="timeline-photo-placeholder">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
@@ -2000,7 +2049,7 @@
                                 Launching new eyeglass-collection drives across Garden City, growing the chapter's volunteer base and widening its reach.
                             </p>
                             <div class="timeline-photo-placeholder">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
@@ -2055,7 +2104,7 @@
             <div class="involve-grid">
                 <div class="involve-card reveal">
                     <div class="involve-card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                         </svg>
                     </div>
@@ -2067,7 +2116,7 @@
 
                 <div class="involve-card reveal">
                     <div class="involve-card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                         </svg>
                     </div>
@@ -2079,7 +2128,7 @@
 
                 <div class="involve-card reveal">
                     <div class="involve-card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
                     </div>
@@ -2100,7 +2149,7 @@
                 <div class="chapter-cta-action">
                     <a href="#contact" class="btn btn-primary">
                         Start a Chapter
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                     </a>
@@ -2162,20 +2211,20 @@
             <div class="contact-grid">
                 <div class="contact-content reveal">
                     <span class="section-label">Contact</span>
-                    <h2 class="section-title">Let's Connect</h2>
+                    <h2 class="section-title">Let’s Connect</h2>
                     <p class="section-subtitle">
                         Have questions? Want to volunteer, donate, or start a chapter? Reach out—we'd love to hear from you.
                     </p>
 
                     <div class="contact-info">
                         <div class="contact-info-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
                             <a href="mailto:mihir.goyal01@gmail.com">mihir.goyal01@gmail.com</a>
                         </div>
                         <div class="contact-info-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
@@ -2189,19 +2238,19 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstName">First Name</label>
-                                <input type="text" id="firstName" name="firstName" required>
+                                <input type="text" id="firstName" name="firstName" autocomplete="given-name" required>
                             </div>
                             <div class="form-group">
                                 <label for="lastName">Last Name</label>
-                                <input type="text" id="lastName" name="lastName" required>
+                                <input type="text" id="lastName" name="lastName" autocomplete="family-name" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" autocomplete="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="interest">I'm interested in...</label>
+                            <label for="interest">I’m interested in…</label>
                             <select id="interest" name="interest">
                                 <option value="">Select an option</option>
                                 <option value="donate">Donating supplies</option>
@@ -2213,11 +2262,11 @@
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Tell us how you'd like to help..."></textarea>
+                            <textarea id="message" name="message" placeholder="Tell us how you’d like to help…"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
                             Send Message
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                             </svg>
                         </button>
@@ -2226,6 +2275,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -2233,7 +2283,7 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <div class="footer-logo-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                         </svg>
@@ -2247,17 +2297,17 @@
 
                 <div class="footer-social">
                     <a href="#" aria-label="Instagram">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                         </svg>
                     </a>
                     <a href="#" aria-label="Twitter">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                         </svg>
                     </a>
                     <a href="https://goyalmihir.blogspot.com" target="_blank" aria-label="Blog">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z" />
                         </svg>
                     </a>
@@ -2269,13 +2319,14 @@
     <script>
         // Navigation scroll effect
         const nav = document.getElementById('nav');
+        let navScrolled = false;
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
+            const scrolled = window.scrollY > 50;
+            if (scrolled !== navScrolled) {
+                navScrolled = scrolled;
+                nav.classList.toggle('scrolled', scrolled);
             }
-        });
+        }, { passive: true });
 
         // Mobile navigation toggle
         const mobileToggle = document.getElementById('mobileToggle');
@@ -2283,7 +2334,16 @@
         mobileToggle.setAttribute('aria-expanded', 'false');
         mobileToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            mobileToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+            const menuOpen = navLinks.classList.contains('active');
+            mobileToggle.setAttribute('aria-expanded', menuOpen);
+            document.body.style.overflow = menuOpen ? 'hidden' : '';
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
         });
 
         // Close mobile nav on link click
@@ -2291,6 +2351,7 @@
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 mobileToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
             });
         });
 
@@ -2315,13 +2376,16 @@
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                const target = document.querySelector(href);
                 if (target) {
+                    e.preventDefault();
                     target.scrollIntoView({
                         behavior: prefersReducedMotion ? 'auto' : 'smooth',
                         block: 'start'
                     });
+                    history.pushState(null, '', href);
                 }
             });
         });

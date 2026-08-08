@@ -12,6 +12,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f8fafc">
     <title>Mihir Goyal | Aspiring Legal Professional & Advocate</title>
     <meta name="description" content="High school senior passionate about law, advocacy, and community service. Legal intern, criminal law researcher, and founder of VisionForAll.">
 
@@ -131,7 +132,7 @@
             width: 24px;
             height: 2px;
             background: var(--navy-deep);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, background 0.3s ease, opacity 0.3s ease;
             position: relative;
         }
 
@@ -142,7 +143,7 @@
             width: 24px;
             height: 2px;
             background: var(--navy-deep);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, top 0.3s ease, opacity 0.3s ease;
         }
 
         .nav-toggle span::before {
@@ -308,7 +309,7 @@
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            transition: all 0.3s ease;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .hero-cta:hover {
@@ -384,16 +385,17 @@
         .hero-scroll-line::after {
             content: '';
             position: absolute;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
             background: var(--cyan-accent);
+            transform: translateX(-100%);
             animation: scrollLine 2s infinite;
         }
 
         @keyframes scrollLine {
-            0% { left: -100%; }
-            100% { left: 100%; }
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
         /* Section Styles */
@@ -583,7 +585,7 @@
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            transition: all 0.3s ease;
+            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
         }
 
         .timeline-link:hover {
@@ -650,11 +652,14 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            transition: gap 0.3s ease;
         }
 
-        .vision-link:hover {
-            gap: 1.25rem;
+        .vision-link svg {
+            transition: transform 0.3s ease;
+        }
+
+        .vision-link:hover svg {
+            transform: translateX(6px);
         }
 
         .vision-stats {
@@ -668,7 +673,7 @@
             padding: 2rem;
             border: 1px solid rgba(255,255,255,0.1);
             background: rgba(255,255,255,0.02);
-            transition: all 0.3s ease;
+            transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
         }
 
         .stat-item:hover {
@@ -707,7 +712,7 @@
             padding: 2rem;
             background: var(--cream);
             border-left: 3px solid var(--cyan-accent);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
         }
 
         .award-item:hover {
@@ -994,7 +999,7 @@
         /* Publications Section */
         .publications {
             padding: 6rem 8%;
-            background: linear-gradient(135deg, var(--slate-light) 0%, var(--cream) 100%);
+            background: linear-gradient(135deg, var(--cream-dark) 0%, var(--cream) 100%);
         }
 
         .book-card {
@@ -1175,7 +1180,7 @@
             padding: 2rem;
             background: white;
             border-left: 3px solid var(--navy-mid);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .leadership-item:hover {
@@ -1278,7 +1283,7 @@
             font-family: var(--font-display);
             font-size: 1.1rem;
             color: var(--navy-mid);
-            transition: all 0.3s ease;
+            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
             cursor: default;
         }
 
@@ -1332,7 +1337,7 @@
             color: var(--cream);
             text-decoration: none;
             font-size: 0.9rem;
-            transition: all 0.3s ease;
+            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
         }
 
         .contact-link:hover {
@@ -1801,6 +1806,61 @@
                 background: var(--cyan-accent);
             }
         }
+        /* Guideline pass: interaction, layout & typography polish */
+        html {
+            color-scheme: light;
+        }
+
+        a, button {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        section[id] {
+            scroll-margin-top: 5.5rem;
+        }
+
+        .section-title,
+        .hero-name,
+        .vision-text h2 {
+            text-wrap: balance;
+        }
+
+        .score-number,
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .nav-overlay,
+        .image-modal {
+            overscroll-behavior: contain;
+        }
+
+        nav {
+            padding-top: max(1.5rem, env(safe-area-inset-top));
+        }
+
+        nav.nav-scrolled {
+            background: rgba(248, 250, 252, 0.95);
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            z-index: 200;
+            background: var(--navy-deep);
+            color: var(--cream);
+            padding: 0.75rem 1.25rem;
+            border-radius: 0 0 8px 0;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .skip-link:focus {
+            left: 0;
+        }
+
         /* Accessibility: visible keyboard focus */
         a:focus-visible,
         button:focus-visible,
@@ -1832,6 +1892,7 @@
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to content</a>
     <nav>
         <a href="#" class="nav-logo">MG</a>
         <ul class="nav-links">
@@ -1861,6 +1922,7 @@
         </ul>
     </div>
 
+    <main id="main">
     <section class="hero">
         <div class="hero-content">
             <p class="hero-eyebrow animate-in">Garden City, New York</p>
@@ -1872,13 +1934,13 @@
             </p>
             <a href="#contact" class="hero-cta animate-in delay-4">
                 Get in Touch
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
             </a>
         </div>
         <div class="hero-image-container">
-            <img src="MihirG.png" alt="Mihir Goyal" class="hero-image">
+            <img src="MihirG.png" alt="Mihir Goyal" width="1792" height="2400" fetchpriority="high" class="hero-image">
             <div class="hero-image-frame"></div>
         </div>
         <div class="hero-scroll">
@@ -1896,14 +1958,14 @@
         <div class="about-grid">
             <div class="about-text">
                 <p>
-                    I'm a senior at Garden City High School, Class of 2027, driven by an unwavering
+                    I’m a senior at Garden City High School, Class of 2027, driven by an unwavering
                     commitment to law, advocacy, and community service. My journey has taken me from
                     the courtrooms of Long Island to the classrooms of India, each experience shaping
                     my understanding of justice and equity.
                 </p>
                 <blockquote class="about-highlight">
-                    "Things laying around as 'spare' or 'old' can make a world of difference
-                    in someone else's life."
+                    “Things laying around as ‘spare’ or ‘old’ can make a world of difference
+                    in someone else’s life.”
                 </blockquote>
                 <p>
                     With proven abilities in research, logical reasoning, and critical thinking,
@@ -1966,7 +2028,7 @@
                     <span class="timeline-location">• Freeport, NY</span>
                 </p>
                 <ul class="timeline-description">
-                    <li>Digitized and indexed legal files — over 40,000 pages — by scanning and organizing documents into the firm's electronic records system, supporting efficient case management and document retrieval</li>
+                    <li>Digitized and indexed legal files — over 40,000 pages — by scanning and organizing documents into the firm’s electronic records system, supporting efficient case management and document retrieval</li>
                     <li>Visited over 10 accident and injury sites to capture photographic evidence, assisting attorneys with case documentation and investigation</li>
                     <li>Conversed with clients in English, Spanish, and Hindi</li>
                 </ul>
@@ -2017,7 +2079,7 @@
                 </ul>
                 <a href="https://li2025.org/criminal_law_2025/Mihir_Goyal" target="_blank" class="timeline-link">
                     View Full Profile
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
                 </a>
@@ -2055,7 +2117,7 @@
                 <div class="timeline-dot"></div>
                 <h3 class="timeline-role">Student Ambassador</h3>
                 <p class="timeline-company">
-                    Garden City Estates Property Owners' Association
+                    Garden City Estates Property Owners’ Association
                     <span class="timeline-location">• Garden City, NY</span>
                 </p>
                 <ul class="timeline-description">
@@ -2082,7 +2144,7 @@
                 </p>
                 <a href="visionforall/" target="_blank" class="vision-link">
                     Explore the Project
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                 </a>
@@ -2116,7 +2178,7 @@
         </div>
         <div class="leadership-grid">
             <div class="leadership-item">
-                <svg class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
@@ -2130,7 +2192,7 @@
                 <a href="visionforall/" target="_blank" class="award-link">Explore VisionForAll</a>
             </div>
             <div class="leadership-item">
-                <svg class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
                 <h3 class="leadership-club">Debate Team</h3>
@@ -2143,7 +2205,7 @@
                 <span class="leadership-growth">Grew club from 6 to 20 members</span>
             </div>
             <div class="leadership-item">
-                <svg class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <h3 class="leadership-club">Model United Nations</h3>
@@ -2156,7 +2218,7 @@
                 <span class="leadership-growth">Grew club from 8 to 40 active members</span>
             </div>
             <div class="leadership-item">
-                <svg class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
                 </svg>
                 <h3 class="leadership-club">Geography Club</h3>
@@ -2169,7 +2231,7 @@
                 </ul>
             </div>
             <div class="leadership-item">
-                <svg class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
                 <h3 class="leadership-club">Envirothon Team</h3>
@@ -2181,7 +2243,7 @@
                 </ul>
             </div>
             <div class="leadership-item">
-                <svg class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
                 </svg>
                 <h3 class="leadership-club">Marching Band</h3>
@@ -2194,7 +2256,7 @@
                 </ul>
             </div>
             <div class="leadership-item">
-                <svg class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
                 <h3 class="leadership-club">Stock Market Club</h3>
@@ -2206,7 +2268,7 @@
                 </ul>
             </div>
             <div class="leadership-item">
-                <svg class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" class="leadership-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                 </svg>
                 <h3 class="leadership-club">Chemistry Club</h3>
@@ -2238,7 +2300,7 @@
         </div>
         <div class="awards-grid">
             <div class="award-item">
-                <svg class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
                 <h3 class="award-title">AP Scholar with Distinction</h3>
@@ -2246,12 +2308,12 @@
                 <div class="award-date">Jul 2026</div>
                 <p class="award-description">Granted to students who receive an average score of at least 3.5 on all AP Exams taken, and scores of 3 or higher on five or more of those exams.</p>
                 <div class="award-association">
-                    <img src="garden_city_high_school_35_logo.jpeg" alt="Garden City High School" class="award-association-logo">
+                    <img src="garden_city_high_school_35_logo.jpeg" alt="Garden City High School" width="100" height="100" loading="lazy" class="award-association-logo">
                     <span class="award-association-text">Associated with Garden City High School</span>
                 </div>
             </div>
             <div class="award-item">
-                <svg class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
                 <h3 class="award-title">2× Long Island Math Fair Medalist</h3>
@@ -2259,12 +2321,12 @@
                 <div class="award-date">2025 · 2026</div>
                 <p class="award-description">Bronze Medal (2025) · Silver Medal (2026)</p>
                 <div class="award-association">
-                    <img src="garden_city_high_school_35_logo.jpeg" alt="Garden City High School" class="award-association-logo">
+                    <img src="garden_city_high_school_35_logo.jpeg" alt="Garden City High School" width="100" height="100" loading="lazy" class="award-association-logo">
                     <span class="award-association-text">Associated with Garden City High School</span>
                 </div>
             </div>
             <div class="award-item">
-                <svg class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                 </svg>
                 <h3 class="award-title">President's Volunteer Service Award — Gold Medal</h3>
@@ -2272,12 +2334,12 @@
                 <p class="award-description">Recognized for 100+ hours of volunteer work dedicated to community service initiatives.</p>
                 <a href="https://www.gcnews.com/articles/livc-hosts-presidents-volunteer-service-awards" target="_blank" class="award-link">Read News Article</a>
                 <div class="award-association">
-                    <img src="garden_city_high_school_35_logo.jpeg" alt="Garden City High School" class="award-association-logo">
+                    <img src="garden_city_high_school_35_logo.jpeg" alt="Garden City High School" width="100" height="100" loading="lazy" class="award-association-logo">
                     <span class="award-association-text">Associated with Garden City High School</span>
                 </div>
             </div>
             <div class="award-item">
-                <svg class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2z" />
                 </svg>
                 <h3 class="award-title">American Legion Boys State Award</h3>
@@ -2285,12 +2347,12 @@
                 <div class="award-date">May 2026</div>
                 <p class="award-description">Selected for the American Legion's premier leadership and civic education program in government and citizenship.</p>
                 <div class="award-association">
-                    <img src="garden_city_high_school_35_logo.jpeg" alt="Garden City High School" class="award-association-logo">
+                    <img src="garden_city_high_school_35_logo.jpeg" alt="Garden City High School" width="100" height="100" loading="lazy" class="award-association-logo">
                     <span class="award-association-text">Associated with Garden City High School</span>
                 </div>
             </div>
             <div class="award-item">
-                <svg class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
                 <h3 class="award-title">Debate Awards</h3>
@@ -2303,40 +2365,40 @@
                 </ul>
                 <div class="debate-images">
                     <div class="debate-image-item">
-                        <img src="debate-02082025.jpeg" alt="Debate Tournament February 2025">
+                        <img src="debate-02082025.jpeg" alt="Debate Tournament February 2025" width="800" height="720" loading="lazy">
                         <span class="debate-image-date">02/08/25</span>
                     </div>
                     <div class="debate-image-item">
-                        <img src="debate-09272025.jpeg" alt="Debate Tournament September 2025">
+                        <img src="debate-09272025.jpeg" alt="Debate Tournament September 2025" width="960" height="1280" loading="lazy">
                         <span class="debate-image-date">09/27/25</span>
                     </div>
                 </div>
                 <div class="award-association">
-                    <img src="garden_city_high_school_35_logo.jpeg" alt="Garden City High School" class="award-association-logo">
+                    <img src="garden_city_high_school_35_logo.jpeg" alt="Garden City High School" width="100" height="100" loading="lazy" class="award-association-logo">
                     <span class="award-association-text">Associated with Garden City High School</span>
                 </div>
             </div>
             <div class="award-item">
-                <svg class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
                 </svg>
                 <h3 class="award-title">4× National Spanish Exam Medalist</h3>
                 <div class="award-issuer">Issued by American Association of Teachers of Spanish and Portuguese (AATSP)</div>
                 <p class="award-description">2× Silver Medal · 2× Bronze Medal (2023, 2024, 2025, 2026)</p>
                 <div class="award-association">
-                    <img src="garden_city_high_school_35_logo.jpeg" alt="Garden City High School" class="award-association-logo">
+                    <img src="garden_city_high_school_35_logo.jpeg" alt="Garden City High School" width="100" height="100" loading="lazy" class="award-association-logo">
                     <span class="award-association-text">Associated with Garden City High School</span>
                 </div>
             </div>
             <div class="award-item">
-                <svg class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg>
                 <h3 class="award-title">LI Change Certificate of Achievement — Criminal Law Program</h3>
                 <a href="https://drive.google.com/file/d/14fbMvs7r_EC_kblLPq_wUfO_qmD8njSQ/view" target="_blank" class="award-link">View Certificate</a>
             </div>
             <div class="award-item">
-                <svg class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" class="award-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <h3 class="award-title">35 Verified Service Hours — LI Change</h3>
@@ -2417,12 +2479,12 @@
         </div>
         <div class="book-card">
             <div class="book-images">
-                <img src="ek-aur-sapana-cover.jpeg" alt="Ek Aur Sapana - Front Cover" class="book-cover front">
-                <img src="ek-aur-sapana-back.jpeg" alt="Ek Aur Sapana - Back Cover" class="book-cover back">
+                <img src="ek-aur-sapana-cover.jpeg" alt="Ek Aur Sapana - Front Cover" width="880" height="1360" loading="lazy" class="book-cover front">
+                <img src="ek-aur-sapana-back.jpeg" alt="Ek Aur Sapana - Back Cover" width="880" height="1360" loading="lazy" class="book-cover back">
             </div>
             <div class="book-details">
                 <h3 class="book-title">Ek Aur Sapana</h3>
-                <p class="book-subtitle">"Another Dream"</p>
+                <p class="book-subtitle">“Another Dream”</p>
                 <div class="book-meta">
                     <div class="book-meta-item">
                         <span class="book-meta-label">Author</span>
@@ -2445,13 +2507,13 @@
                 <p class="book-description" style="margin-top: 0.5rem; font-size: 0.88rem;">Beyond the creative writing, this project taught me the end-to-end process of publishing a book — from managing and editing a large manuscript, to designing a cover, getting content approved by Amazon, and repeatedly reviewing and refining the final product.</p>
                 <div class="book-links">
                     <a href="https://books.google.com/books/about/Ek_Aur_Sapana.html?id=eCKczQEACAAJ" target="_blank" class="book-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                         </svg>
                         Google Books
                     </a>
                     <a href="https://www.amazon.ae/Ek-Aur-Sapana-Lamiya-Sulemanji/dp/B08CJSK5FF" target="_blank" class="book-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
                         Amazon
@@ -2482,23 +2544,23 @@
     </section>
 
     <section class="contact" id="contact">
-        <h2>Let's Connect</h2>
+        <h2>Let’s Connect</h2>
         <p class="contact-subtitle">Open to opportunities, collaborations, and conversations</p>
         <div class="contact-links">
             <a href="mailto:mihir.goyal01@gmail.com" class="contact-link">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 Email
             </a>
             <a href="https://linkedin.com/in/mihir-goyal" target="_blank" class="contact-link">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
                 LinkedIn
             </a>
             <a href="visionforall/" target="_blank" class="contact-link">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
@@ -2506,6 +2568,7 @@
             </a>
         </div>
     </section>
+    </main>
 
     <footer>
         <p>© 2026 Mihir Goyal. Crafted with purpose.</p>
@@ -2515,7 +2578,7 @@
     <div class="image-modal" id="imageModal" role="dialog" aria-modal="true" aria-label="Image viewer">
         <div class="modal-content">
             <button class="modal-close" aria-label="Close modal">&times;</button>
-            <img id="modalImage" src="" alt="">
+            <img id="modalImage" alt="">
             <div class="modal-caption" id="modalCaption"></div>
         </div>
     </div>
@@ -2579,15 +2642,16 @@
             });
         }
 
-        // Nav background on scroll
+        // Nav background on scroll (class toggle, passive, change-guarded)
         const nav = document.querySelector('nav');
+        let navScrolled = false;
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(248, 250, 252, 0.95)';
-            } else {
-                nav.style.background = 'rgba(248, 250, 252, 0.8)';
+            const scrolled = window.scrollY > 100;
+            if (scrolled !== navScrolled) {
+                navScrolled = scrolled;
+                nav.classList.toggle('nav-scrolled', scrolled);
             }
-        });
+        }, { passive: true });
 
         // Image Modal
         const modal = document.getElementById('imageModal');
