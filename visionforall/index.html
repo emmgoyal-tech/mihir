@@ -1358,6 +1358,16 @@
             box-shadow: var(--shadow-soft);
         }
 
+        /* Cusdis renders into an iframe whose auto-resize can lag or fail —
+           give it a floor tall enough for the composer plus several comments */
+        #cusdis_thread,
+        #cusdis_thread iframe {
+            display: block;
+            width: 100%;
+            min-height: 560px;
+            border: 0;
+        }
+
         /* Guideline pass: interaction, layout & typography polish */
         html {
             color-scheme: light;
