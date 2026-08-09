@@ -1337,6 +1337,27 @@
             color: #b3261e;
         }
 
+        /* Words of Support (Cusdis wall) */
+        .messages {
+            padding: var(--section-padding) 0;
+            background: var(--cream-dark);
+        }
+
+        .messages-header {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .messages-thread {
+            max-width: 840px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-soft);
+        }
+
         /* Guideline pass: interaction, layout & typography polish */
         html {
             color-scheme: light;
@@ -1707,6 +1728,7 @@
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#respectacle">ReSpectacle</a></li>
                 <li><a href="#involve">Get Involved</a></li>
+                <li><a href="#messages">Messages</a></li>
                 <li><a href="#contact" class="nav-cta">Contact</a></li>
             </ul>
             <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
@@ -2344,6 +2366,28 @@
             </div>
         </div>
     </section>
+
+    <!-- Words of Support (Cusdis wall) -->
+    <section class="messages" id="messages">
+        <div class="container">
+            <div class="messages-header reveal">
+                <span class="section-label">Community</span>
+                <h2 class="section-title">Words of Support</h2>
+                <p class="section-subtitle">
+                    Leave a public note of encouragement — no account needed. Messages appear here once they've been reviewed. For private questions, please use the contact form above.
+                </p>
+            </div>
+            <div class="messages-thread reveal">
+                <div id="cusdis_thread"
+                    data-host="https://cusdis.com"
+                    data-app-id="a661eb12-9e31-4127-88eb-2c2bb3e3269b"
+                    data-page-id="visionforall-words-of-support"
+                    data-page-url="https://mihir-goyal.com/visionforall/"
+                    data-page-title="Vision for All — Words of Support">
+                </div>
+            </div>
+        </div>
+    </section>
     </main>
 
     <!-- Footer -->
@@ -2522,5 +2566,6 @@
             window.requestAnimationFrame(step);
         }
     </script>
+    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 </body>
 </html>
