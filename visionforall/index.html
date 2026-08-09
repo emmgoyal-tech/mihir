@@ -1320,6 +1320,23 @@
             transform: translateY(0);
         }
 
+        .form-status {
+            display: none;
+            margin-top: 1rem;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .form-status.success {
+            display: block;
+            color: #1a7f4f;
+        }
+
+        .form-status.error {
+            display: block;
+            color: #b3261e;
+        }
+
         /* Guideline pass: interaction, layout & typography polish */
         html {
             color-scheme: light;
@@ -2285,7 +2302,7 @@
                 </div>
 
                 <div class="contact-form-wrapper reveal">
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xnpajwey" method="POST">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstName">First Name</label>
@@ -2316,11 +2333,12 @@
                             <textarea id="message" name="message" placeholder="Tell us how you’d like to help…"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
-                            Send Message
+                            <span id="sendLabel">Send Message</span>
                             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                             </svg>
                         </button>
+                        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
                     </form>
                 </div>
             </div>
@@ -2441,12 +2459,34 @@
             });
         });
 
-        // Form submission (demo)
+        // Form submission (Formspree)
         const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
+        const formStatus = document.getElementById('formStatus');
+        const sendLabel = document.getElementById('sendLabel');
+        const sendButton = contactForm.querySelector('button[type="submit"]');
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            alert('Thank you for reaching out! We\'ll be in touch soon.');
-            contactForm.reset();
+            formStatus.className = 'form-status';
+            formStatus.textContent = '';
+            sendButton.disabled = true;
+            sendLabel.textContent = 'Sending…';
+            try {
+                const resp = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (!resp.ok) throw new Error('send failed');
+                formStatus.classList.add('success');
+                formStatus.textContent = 'Thank you! Your message is on its way — we’ll be in touch soon.';
+                contactForm.reset();
+            } catch (err) {
+                formStatus.classList.add('error');
+                formStatus.textContent = 'Something went wrong and your message wasn’t sent. Please try again, or email mihir.goyal01@gmail.com directly.';
+            } finally {
+                sendButton.disabled = false;
+                sendLabel.textContent = 'Send Message';
+            }
         });
 
         // Stats counter animation
